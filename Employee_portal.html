@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Emplopyee_portal_module.CSS">
+</head>
+<body>
+    <!-- ***************** heading ******************************** -->
+      <h1 class="emp_register-heading">Employee Portal</h1>
+
+    <!-- *********************** Employee detail input ******************************** -->
+      <div class="emp_register-detail">
+      <form class="emp_register-input"  action="#" onsubmit="return validation()">
+        <div class="input_detail">
+            <label class="emp_label" for="id">Id </label>
+            <input class="emp_input" type="text" id="id">
+            <p class="error id_error"></p>
+        </div>
+        <div class="input_detail">
+            <label class="emp_label" for="name">Name </label>
+            <input class="emp_input" id="name" type="text">
+            <p class="error name_error"></p>
+        </div>
+        <div class="input_detail">
+            <label class="emp_label" for="age">Age </label>
+            <input class="emp_input" id="age" type="text">
+            <p class="error age_error"></p>
+        </div>
+
+        <div class="input_detail">
+            <label class="emp_label" for="gender">Gender </label>
+            <select class="emp_input emp_input_select" id="gender">
+                <option value="select">Select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <p class="error gender_error"></p>
+        </div>
+
+        <div class="input_detail">
+            <label class="emp_label" for="designation">Designation </label>
+            <select class="emp_input emp_input_select" id="designation">
+                <option value="select">Select</option>
+                <option value="Analyst">Analyst</option>
+                <option value="Senior Analyst">Senior Analyst</option>
+                <option value="Developer">Developer</option>
+            </select>
+            <p class="error desg_error"></p>
+        </div>
+        <div class="input_detail">
+            <label class="emp_label" for="image">Image </label>
+            <input class="emp_input" type="text" id="image">
+            <p class="error image_error"></p>
+        </div>
+        <input class="register_button" type="submit" value="Register">
+      </form>
+
+      <!-- *********************************** Employee data table *****************************************  -->
+      <div class="emp_detail">
+        <table class="emp_detail-table">
+            <thead>
+                <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Designation</th>
+                <th>Action</th>
+                </tr>
+            </thead>
+            <tbody class="emp_detail-fields"></tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- *****************************************Pop-up********************************************** -->
+
+    <div class="modal hidden">
+            <div class="employee_image">
+                <img class="employee_card_image" src="Employee_image\download.jpg">
+            </div>
+
+            <div class="employee_card-detail">
+                <p>Name:<span>Abhay Rajpurohit</span></p>
+                <p>Age:<span>21</span></p>
+                <p>Gender:<span>Male</span></p>
+                <p>Designation:<span>Solution Analyst</span></p>
+                <button class="card_close_button">Ok</button>
+            </div>
+    </div>
+    
+    <div class="overlay hidden"></div>
+
+    <script src="Employee_detail_verification.js"></script>
+    <script src="Employee_entry.js"></script>
+</body>
+</html>

@@ -1,0 +1,241 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 16px;
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  line-height: 1.6;
+  font-weight: bold;
+  /* background-image: linear-gradient(to right, #7ed56f, #28b485); */
+  /* height: 100%;
+      width: 100%; */
+  margin-bottom: 2rem;
+  background-image: linear-gradient(
+      to right bottom,
+      rgb(72, 84, 97, 0.8),
+      rgba(34, 35, 36, 0.9)
+    ),
+    url("employee-register-background-image.jpg");
+}
+
+/***************************************** Employee Register *****************************************/
+.emp_register-detail {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  width: 90%;
+  margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 0.7rem;
+  padding: 0.5rem;
+}
+
+.emp_register-heading {
+  font-size: 4rem;
+  text-align: center;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  color: #e7e7e7;
+}
+
+.emp_register-input {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.emp_label {
+  font-size: 1rem;
+  color: white;
+  width: 7rem;
+  display: block;
+  font-weight: bold;
+}
+
+.emp_input {
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 13rem;
+  border: 1px solid #ebe4e4;
+}
+
+.input_detail {
+  padding: 0.5rem;
+}
+
+.emp_input_select {
+  width: 14rem;
+}
+
+.register_button {
+  margin-top: 1rem;
+  font-size: 1.3rem;
+  padding: 1rem;
+  background-color: #e2e0e0;
+  color: rgb(63, 59, 59);
+  border-radius: 2rem;
+  border: none;
+  width: 15rem;
+  cursor: pointer;
+  align-self: center;
+  transition: all 0.5s;
+  font-weight: 800;
+}
+
+.register_button:hover {
+  transform: translate(-5px, -5px);
+}
+
+.register_button:active {
+  transform: translate(3px, 3px);
+}
+
+/********************************************* Employee Table *******************************************/
+.emp_detail {
+  padding: 0.7rem;
+}
+
+.emp_detail-table {
+  border-collapse: collapse;
+  border: 1px solid black;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
+
+th {
+  background-color: grey;
+  color: #ebe4e4;
+}
+
+td {
+  background-color: white;
+  color: gray;
+  padding: 0.5rem;
+}
+
+.emp_detail-action {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.emp_action {
+  width: 3.5rem;
+  height: 2rem;
+  border: none;
+  cursor: pointer;
+  color: #504e4e;
+}
+
+.action-1,
+.action-2 {
+  background-color: greenyellow;
+}
+.action-3 {
+  background-color: red;
+}
+
+.error {
+  color: rebeccapurple;
+  margin-top: 0.5rem;
+}
+
+/* ********************************************employee-popup*********************** */
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  z-index: 1000;
+  width: 18rem;
+  height: 30rem;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  border-radius: 5px;
+}
+
+.employee_image {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border-bottom: #e2e0e0 2px solid;
+}
+
+.employee_card_image {
+  border-radius: 3rem;
+  border: #504e4e 5px solid;
+  width: 15rem;
+  height: 12rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+}
+
+.employee_card-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 0 auto;
+}
+
+.card_close_button {
+  background-color: #9e9a9a;
+  font-size: 1rem;
+  color: purple;
+  border: none;
+  width: 7rem;
+  height: 2rem;
+  cursor: pointer;
+  align-self: center;
+  font-weight: 600;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@media (max-width: 1000px) {
+  .emp_register-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.7rem;
+    padding: 0.5rem;
+  }
+
+  .emp_register-input {
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: (auto-fit, minmax(200px, 1fr));
+    /* grid-template-columns:max-content;
+            grid-template-rows: max-content; */
+  }
+
+  .emp_register-heading {
+    font-size: 2rem;
+    text-align: center;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    color: #e7e7e7;
+  }
+}
