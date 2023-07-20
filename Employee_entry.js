@@ -4,15 +4,16 @@ const employeTable = document.querySelector(".emp_detail-fields");
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
-// console.log(button, "here");
+
+const search = document.querySelector(".emp_detail-search-input");
+const searchBtn = document.querySelector(".emp_detail-search-btn");
+// console.log(button, "here");funct
 let employeeDetail = {};
 let keys = new Set();
 
-function showEmployeeDetail() {
+function showDetail(key) {
   let str = "";
-  for (let key in employeeDetail) {
-    console.log(key);
-    str += `
+  str += `
         <tr>
         <td>${key}</td>
         <td>${employeeDetail[key].name}</td>
@@ -26,8 +27,13 @@ function showEmployeeDetail() {
               <button onclick="deleteEmployee(${key})" class="emp_action action-3">Delete</button>
         </td>
         </tr>
-        `;
-  }
+      `;
+  return str;
+}
+
+function showEmployeeDetail() {
+  let str = "";
+  for (let key in employeeDetail) str += showDetail(key, str);
   employeTable.innerHTML = str;
 }
 
@@ -47,7 +53,7 @@ function addEmployee(
     designation: designationValue,
     image: imageValue,
   };
-  keys.add(idValue);
+  keys.add(Number(idValue));
   showEmployeeDetail();
 }
 
@@ -63,6 +69,10 @@ function editEmployee(key) {
   genderInput.value = employeeDetail[key].gender;
   designationInput.value = employeeDetail[key].designation;
   imageInput.value = employeeDetail[key].image;
+  console.log(key);
+  keys.delete(key);
+  console.log(keys);
+  console.log(employeeDetail);
   deleteEmployee(key);
 }
 
@@ -95,3 +105,23 @@ function viewEmployee(key) {
   overlay.addEventListener("click", closeModal);
   button.addEventListener("click", closeModal);
 }
+
+searchBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  let text = search.value;
+  let str = "";
+
+  for (const [key, value] of Object.entries(employeeDetail)) {
+    if (
+      key == text ||
+      text == value.name ||
+      text == value.age ||
+      text == value.designation ||
+      text == value.gender
+    ) {
+      str += showDetail(key);
+    }
+  }
+  if (str == "") showEmployeeDetail();
+  else employeTable.innerHTML = str;
+});
